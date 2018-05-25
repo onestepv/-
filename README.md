@@ -51,7 +51,7 @@
     onLoad > onShow > onReady
     onShow 相当于jquery里的$(document).ready 文档结构加载完成（不包含图片等非文字媒体文件）
     onReady 相当于window.onload 表示页面包含图片在内的所有元素都加载完毕
-### 小程序的<text></text>默认有上边距
+### 小程序的text标签默认有上边距
     解决办法：
     display: block;
 ### wx.redirectTo()和wx.navigateTo()
