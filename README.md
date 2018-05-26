@@ -60,4 +60,30 @@
     
     后者会在浏览历史记录(history)对象中增加一条新的记录，前者则相当于用replace中的url代替了现有的页面url，
     把history的url替换为重新定向后的url。
+### 小程序跳转页面传参
+    url: '../../xxx?A=a & B=b'
+### 小程序的下拉分页
+    data: {
+        pageIndex: 1;       //默认为1，当前请求数据为第几页，请求1次加一
+        pageSize: 10;       //每页显示记录条数，这里显示10条记录
+        isLastPage: 0;      //'0'表示false '1'表示true
+        contentList: []
+    }
+    (1)请求的记录条数<=0,改变isLastPage的状态值，isLastPage:1
+    (2)请求的记录条数<每页需要显示的记录条数      isLastPage:1
+    (3)记录条数>显示数
+    满足（2）（3）则触发：
+    请求接口，将记录填充到contentList里，每请求一次，pageIndex+1，
+    改变默认的pageIndex的值 this.setData({pageIndex: this.data.pageIndex})
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
