@@ -33,19 +33,18 @@
       onUnload: function() {
         // 页面卸载(当redirectTo或navigateBack时调用)
       },
+      注：1.当页面存在计时器试，需要注意计时器启动和取消的位置；
+          2.当用户按home键或者右上角圆点退出小程序，执行onHide onUnload执行情况
+      
       //以上为page页面的生命周期
-      onPullDownRefresh: function() {
-        // 下拉事件
-      },
+      
       onReachBottom: function() {
         //触底事件 如分页
       },
       onShareAppMessage: function () {
        // return custom share data when user share.
       },
-      onPageScroll: function() {
-        // Do something when page scroll
-      },
+       ......
     })
 ### onLoad onReady onShow的响应顺序
     onLoad > onShow > onReady
@@ -60,6 +59,8 @@
     
     后者会在浏览历史记录(history)对象中增加一条新的记录，前者则相当于用replace中的url代替了现有的页面url，
     把history的url替换为重新定向后的url。
+    
+    注：wx.navigateTo()最多只能跳5次，因为小程序页面的实例使用栈的数据结构存储，栈内元素最多5个
 ### 小程序跳转页面传参
     url: '../../xxx?A=a & B=b'
 ### 小程序的下拉分页
@@ -75,6 +76,13 @@
     满足（2）（3）则触发：
     请求接口，将记录填充到contentList里，每请求一次，pageIndex+1，
     改变默认的pageIndex的值 this.setData({pageIndex: this.data.pageIndex})
+    第二次后的数据，使用数组合并，并到contentList中；
+    
+    
+    
+   
+    
+ 
     
     
     
